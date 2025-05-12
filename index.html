@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona do Pobierania Plików</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .download-button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: background-color 0.3s;
+            animation: bounce 2s infinite;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+        .download-button:active {
+            transform: scale(0.95);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Pobierz swoje pliki</h1>
+    <div id="downloadLinks"></div>
+</div>
+
+<script>
+    // Tablica linków do plików, które chcesz udostępnić do pobrania
+    const fileLinks = [
+        { name: 'Plik 1', url: 'https://example.com/plik1.zip' },
+        { name: 'Plik 2', url: 'https://example.com/plik2.zip' },
+        { name: 'Plik 3', url: 'https://example.com/plik3.zip' }
+    ];
+
+    // Generowanie przycisków pobierania
+    const downloadLinksContainer = document.getElementById('downloadLinks');
+    fileLinks.forEach(file => {
+        const button = document.createElement('a');
+        button.href = file.url;
+        button.classList.add('download-button');
+        button.target = '_blank'; // Otwórz link w nowej karcie
+        button.innerText = `Pobierz ${file.name}`;
+        downloadLinksContainer.appendChild(button);
+    });
+</script>
+</body>
+</html>
