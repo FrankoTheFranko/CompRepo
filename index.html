@@ -14,6 +14,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column-reverse; /* Odwrócenie kierunku wyświetlania elementów */
         }
         .container {
             text-align: center;
@@ -82,9 +83,9 @@
         { name: 'Plik 3', url: 'https://example.com/plik3.zip' }
     ];
 
-    // Generowanie przycisków pobierania
+    // Generowanie przycisków pobierania w odwrotnej kolejności
     const downloadLinksContainer = document.getElementById('downloadLinks');
-    fileLinks.forEach(file => {
+    fileLinks.reverse().forEach(file => {
         const button = document.createElement('a');
         button.href = file.url;
         button.classList.add('download-button');
